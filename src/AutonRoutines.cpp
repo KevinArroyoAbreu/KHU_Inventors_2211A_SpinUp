@@ -10,9 +10,9 @@ and programming skills*/
 //___________________________________________________\\
 
 /*-------------------------------------------------------------------------*/
-//#1: closeAuton ->
+//#1: rollerAuton ->
 /*-------------------------------------------------------------------------*/
-void closeAuton(){
+void rollerAuton(){
   drive->moveDistance(-1_in);
   scoreRollerAuton();
   drive->moveDistance(2_in);
@@ -29,9 +29,33 @@ void closeAuton(){
 }
 
 /*-------------------------------------------------------------------------*/
-//#2: farAuton ->
+//#2: nonRollerAuton ->
 /*-------------------------------------------------------------------------*/
-void farAuton(){
+void nonRollerAuton(){
+  drive->moveDistanceAsync(32_in);
+  intakeV(600);
+  pros::delay(1200);
+  intakeStop();
+  drive->waitUntilSettled();
+  drive->turnAngleAsync(40_deg);
+  flySpinToV(600);
+  drive->waitUntilSettled();
+  pros::delay(1500);
+  shoot();
+  pros::delay(5000);
+  flyStop();
+  rollerStop();
+  drive->turnAngle(-90_deg);
+  drive->moveDistanceAsync(-52_in);
+  intakeV(600);
+  drive->waitUntilSettled();
+  drive->turnAngle(55_deg);
+  drive->moveDistance(-4_in);
+  scoreRollerAuton();
+  drive->moveDistance(2_in);
+
+
+
 
 }
 

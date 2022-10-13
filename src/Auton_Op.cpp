@@ -16,8 +16,8 @@ void runAuton(){
   /*------------------------------------------*/
   //SELECTED AUTON ROUTINE:
   /*------------------------------------------*/
-  closeAuton();
-//  farAuton();
+  // rollerAuton();
+  nonRollerAuton();
 //  fullWpAuton();
 //  progSkills();
 }
