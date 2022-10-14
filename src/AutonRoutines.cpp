@@ -63,6 +63,15 @@ void nonRollerAuton(){
 //#3: fullWPAuton ->
 /*-------------------------------------------------------------------------*/
 void fullWpAuton(){
+  drive->moveDistance(-1_in);
+  scoreRollerAuton();
+  drive->moveDistance(6_in);
+  drive->turnAngle(50.5_deg);
+  drive->moveDistance(135_in);
+  drive->turnAngle(-140_deg);
+  drive->moveDistance(-8_in);
+  scoreRollerAuton();
+  drive->moveDistance(2_in);
 
 }
 
