@@ -87,7 +87,7 @@ if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
 else{
   def::indexerLever.set_value(true);
   def::Roller_Indexer.moveVelocity(0);
-  pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(-2));
+  pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(-4));
 }
 /*------------------------------------------*/
 //Expansion; Operator Control:
