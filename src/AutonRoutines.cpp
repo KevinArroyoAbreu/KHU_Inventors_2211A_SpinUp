@@ -79,5 +79,25 @@ void fullWpAuton(){
 //#4: progSkills --> Programming Skills Routine
 /*-------------------------------------------------------------------------*/
 void  progSkills(){
+  rollerV(200);//Score Roller 1
+  drive->moveDistance(-1_in);
+  pros::delay(200);
+  stopWColor();
+  //-------------------------
+  drive->turnAngle(-40_deg);
+  drive->moveDistance(22_in);
+  drive->turnAngle(130_deg);
+  rollerV(200);  //Score Roller 2
+  drive->moveDistance(-7_in);
+  pros::delay(200);
+  stopWColor();
+  //------------------------
+  drive->moveDistance(15_in);
+  drive->turnAngle(-80_deg);
+  drive->moveDistance(-6_in);
+  drive->turnAngle(45_deg);
+  //------------------------
+  deployExpansion();
+
 
 }

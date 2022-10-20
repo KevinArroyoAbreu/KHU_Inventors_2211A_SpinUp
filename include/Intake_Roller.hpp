@@ -17,3 +17,4 @@ void shoot();
 void scoreRollerAuton();
 void rollerStop();
 void rollerV(int velocity);
+void stopWColor();

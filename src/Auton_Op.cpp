@@ -18,8 +18,8 @@ void runAuton(){
   /*------------------------------------------*/
   //  rollerAuton();
 //  nonRollerAuton();
-  fullWpAuton();
-//  progSkills();
+//  fullWpAuton();
+  progSkills();
 }
 
 
