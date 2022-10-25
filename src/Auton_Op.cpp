@@ -17,9 +17,9 @@ void runAuton(){
   //SELECTED AUTON ROUTINE:
   /*------------------------------------------*/
   //  rollerAuton();
-//  nonRollerAuton();
-//  fullWpAuton();
-  progSkills();
+  //  nonRollerAuton();
+  //  fullWpAuton();
+    progSkills();
 }
 
 
@@ -58,7 +58,7 @@ void runOp(){
 //Shooter; Operator Control:
 /*------------------------------------------*/
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) == 1) {
-  flySpinToV(310);
+  flySpinToV(340);//310
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_A) == 1) {
   flySpinToV(600);
