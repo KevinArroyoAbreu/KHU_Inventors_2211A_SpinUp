@@ -35,23 +35,11 @@ void runOp(){
 //Control Drivetrain with left joystick (drive) and right joystick(turn)
 
     //LEFT
-    pros::c::motor_move(11,
-      pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y)*driveMult
-      + pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X)*turnMult);
-
-    pros::c::motor_move(12,
-      - pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y)*driveMult
-      - pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X)*turnMult);
-
-
+    pros::c::motor_move(11, fwdMovementFunct + turnMovementFunct);
+    pros::c::motor_move(12, - fwdMovementFunct - turnMovementFunct);
     //RIGHT
-    pros::c::motor_move(13,
-    -  pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y)*driveMult
-      + pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X)*turnMult);
-
-    pros::c::motor_move(14,
-      pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y)*driveMult
-      - pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X)*turnMult);
+    pros::c::motor_move(13, - fwdMovementFunct + turnMovementFunct);
+    pros::c::motor_move(14, fwdMovementFunct - turnMovementFunct);
 
 
 /*------------------------------------------*/

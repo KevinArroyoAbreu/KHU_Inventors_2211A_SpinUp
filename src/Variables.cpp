@@ -7,8 +7,12 @@
 //Include all header files
 #include "main.h"
 //_________________________________________________________________
-int driveMult = 6;
-int turnMult = 4;
+//Drivetrain Movements (Op Control) (p. 24 subsystem#5)
+float fwdJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y)
+float turnJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X)
+//b(x) = x^2
+float fwdMovementFunct = fwdJoystick^2;
+float turnMovementFunct = turnJoystick^2;
 
 //PID
 // distance controller gains
