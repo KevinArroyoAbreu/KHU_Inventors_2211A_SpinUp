@@ -9,8 +9,8 @@
 //Include all header files
 #include "main.h"
 //_________________________________________________________________
-extern float fwdJoystick;
-extern float turnJoystick;
+extern int fwdJoystick;
+extern int turnJoystick;
 extern float fwdMovementFunct;
 extern float turnMovementFunct;
 
