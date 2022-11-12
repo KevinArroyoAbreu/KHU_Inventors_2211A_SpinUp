@@ -16,7 +16,7 @@ void intakeStop(){
   def::Intake.moveVelocity(0);
 }
 void shoot(){
- def::indexerLever.set_value(false);
+ def::indexerLever.set_value(true);
  pros::delay(150);
  def::Roller_Indexer.moveVelocity(200);
 }

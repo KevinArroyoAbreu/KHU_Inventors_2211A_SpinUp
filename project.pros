@@ -310,8 +310,8 @@
         "upload_options": {
             "compress_bin": true,
             "description": "Created with PROS",
-            "remote_name": "Skills-SpinUp",
-            "slot": 4
+            "remote_name": "SpinUp",
+            "slot": 1
         }
     }
 }
