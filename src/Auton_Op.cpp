@@ -33,13 +33,21 @@ void runOp(){
 /*------------------------------------------*/
 
 //Control Drivetrain with left joystick (drive) and right joystick(turn)
+//--DRIVETRAIN CONTROL FUNCTIONS
+//Drivetrain Movements (Op Control) (p. 24 subsystem#5)
+int fwdJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y);
+int turnJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X);
+//c(x) = x^3
+int fwdMovementFunct = fwdJoystick^3;
+int turnMovementFunct = turnJoystick^3;
+///////////////////////////////////////////////////////////////////////////
 
     //LEFT
-    pros::c::motor_move(11, fwdMovementFunct + turnMovementFunct);
-    pros::c::motor_move(12, - fwdMovementFunct - turnMovementFunct);
+   pros::c::motor_move(11, fwdMovementFunct + turnMovementFunct);
+   pros::c::motor_move(12, - fwdMovementFunct - turnMovementFunct);
     //RIGHT
-    pros::c::motor_move(13, - fwdMovementFunct + turnMovementFunct);
-    pros::c::motor_move(14, fwdMovementFunct - turnMovementFunct);
+   pros::c::motor_move(13, - fwdMovementFunct + turnMovementFunct);
+   pros::c::motor_move(14, fwdMovementFunct - turnMovementFunct);
 
 
 /*------------------------------------------*/
