@@ -18,13 +18,16 @@ void rollerAuton(){
   drive->moveDistance(2_in);
   drive->turnAngle(50_deg);
   intakeV(-600);
-  drive->moveDistance(35_in);
-  flySpinToV(510);
-  rollerV(-200);
+  drive->moveDistance(41_in);
+  flySpinToV(420);
   drive->turnAngle(-75_deg);
-  rollerStop();
   pros::delay(2000);
   shoot();
+  pros::delay(4000);
+  flyStop();
+  rollerStop();
+  intakeStop();
+
 
 }
 
@@ -37,20 +40,21 @@ void nonRollerAuton(){
   pros::delay(1200);
   intakeStop();
   drive->waitUntilSettled();
-  drive->turnAngleAsync(40_deg);
-  flySpinToV(600);
-  drive->waitUntilSettled();
+  drive->turnAngle(40_deg);
+  flySpinToV(570);
+  drive->moveDistance(6_in);
   pros::delay(1500);
   shoot();
-  pros::delay(5000);
+  pros::delay(4000);
   flyStop();
   rollerStop();
+  liftLever();
   drive->turnAngle(-90_deg);
   drive->moveDistanceAsync(-52_in);
   intakeV(600);
   drive->waitUntilSettled();
   drive->turnAngle(55_deg);
-  drive->moveDistance(-4_in);
+  drive->moveDistance(-8_in);
   scoreRollerAuton();
   drive->moveDistance(2_in);
 
@@ -63,13 +67,24 @@ void nonRollerAuton(){
 //#3: fullWPAuton ->
 /*-------------------------------------------------------------------------*/
 void fullWpAuton(){
+  //Score Roller 1
   drive->moveDistance(-1_in);
   scoreRollerAuton();
-  drive->moveDistance(6_in);
+  drive->moveDistance(4_in);
+  //Approach shooting distance
+  drive->turnAngle(-141_deg);
+  flySpinToV(480);
+  drive->moveDistance(-66_in);
+  //Turn towards goal and shoot
+  drive->turnAngle(100_deg);
+  shoot();
+  pros::delay(2000);
+  //Approach second roller
+  drive->turnAngle(-95_deg);
+  drive->moveDistance(-70_in);
+  //Turn towards roller 2 and turn it
   drive->turnAngle(50.5_deg);
-  drive->moveDistance(135_in);
-  drive->turnAngle(-140_deg);
-  drive->moveDistance(-8_in);
+  drive->moveDistance(-10_in);
   scoreRollerAuton();
   drive->moveDistance(2_in);
 

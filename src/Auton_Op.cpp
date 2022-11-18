@@ -18,8 +18,8 @@ void runAuton(){
   /*------------------------------------------*/
   //  rollerAuton();
   //  nonRollerAuton();
-  //  fullWpAuton();
-    progSkills();
+    fullWpAuton();
+  //  progSkills();
 }
 
 
@@ -37,9 +37,9 @@ void runOp(){
 //Drivetrain Movements (Op Control) (p. 24 subsystem#5)
 int fwdJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y);
 int turnJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X);
-//c(x) = x^3
-int fwdMovementFunct = fwdJoystick^3;
-int turnMovementFunct = turnJoystick^3;
+//b(x) = x^2
+int fwdMovementFunct = fwdJoystick^2;
+int turnMovementFunct = turnJoystick^2;
 ///////////////////////////////////////////////////////////////////////////
 
     //LEFT

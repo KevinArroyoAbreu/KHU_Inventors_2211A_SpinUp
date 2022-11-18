@@ -20,6 +20,9 @@ void shoot(){
  pros::delay(150);
  def::Roller_Indexer.moveVelocity(200);
 }
+void liftLever(){
+ def::indexerLever.set_value(false);
+}
 void scoreRollerAuton(){
  def::Roller_Indexer.moveVelocity(200);
  pros::delay(500);
