@@ -310,8 +310,8 @@
         "upload_options": {
             "compress_bin": true,
             "description": "Created with PROS",
-            "remote_name": "progSkills(close)",
-            "slot": 5
+            "remote_name": "nonRollerAuton(far)",
+            "slot": 3
         }
     }
 }
