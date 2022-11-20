@@ -25,7 +25,7 @@ void liftLever(){
 }
 void scoreRollerAuton(){
  def::Roller_Indexer.moveVelocity(200);
- pros::delay(500);
+ pros::delay(350);
  def::Roller_Indexer.moveVelocity(0);
 }
 void rollerStop(){
