@@ -39,7 +39,7 @@ int fwdJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros
 int turnJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X);
 //b(x) = x^2
 int fwdMovementFunct = fwdJoystick^2;
-int turnMovementFunct = turnJoystick^2;
+int turnMovementFunct = turnJoystick/1.25;
 ///////////////////////////////////////////////////////////////////////////
 
     //LEFT
@@ -78,6 +78,15 @@ else{
 }
 //Shoot and Roller
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
+  shoot();
+}
+else{
+  def::Roller_Indexer.moveVelocity(0);
+  pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(-4));
+}
+//Angle Changer
+if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) == 1) {
+  def::indexerLever.set_value(true);
   shoot();
 }
 else{
