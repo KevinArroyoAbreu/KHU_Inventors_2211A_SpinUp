@@ -54,7 +54,7 @@ int turnMovementFunct = turnJoystick/1.25;
 //Shooter; Operator Control:
 /*------------------------------------------*/
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) == 1) {
-  flySpinToV(330);//310
+  flySpinToV(350);//310
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_A) == 1) {
   flySpinToV(600);
@@ -69,6 +69,7 @@ else{
 //Intake
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) == 1) {
   intakeV(600);
+  rollerV(100);
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2) == 1) {
   intakeV(-600);
@@ -76,16 +77,11 @@ else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2) == 1) {
 else{
   intakeStop();
 }
-//Shoot and Roller
+//Shoot and Roller + Angle Changer
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
   shoot();
 }
-else{
-  def::Roller_Indexer.moveVelocity(0);
-  pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(-4));
-}
-//Angle Changer
-if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) == 1) {
+else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) == 1) {
   def::indexerLever.set_value(true);
   shoot();
 }
