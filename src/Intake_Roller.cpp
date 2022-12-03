@@ -19,7 +19,7 @@ void shoot(){
  def::Roller_Indexer.moveVelocity(200);
 }
 void liftLever(){
- def::indexerLever.set_value(false);
+ def::angleLever.set_value(false);
 }
 void scoreRollerAuton(){
  def::Roller_Indexer.moveVelocity(200);

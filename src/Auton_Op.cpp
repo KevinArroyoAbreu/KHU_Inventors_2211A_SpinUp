@@ -66,27 +66,24 @@ else{
 /*------------------------------------------*/
 //Intake and Roller Spinner; Operator Control:
 /*------------------------------------------*/
-//Intake
-if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) == 1) {
+//Intake + Shoot and Roller + Angle Changer
+if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
+  shoot();
+}
+else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) == 1) {
+  def::angleLever.set_value(true);
+  shoot();
+}
+else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) == 1) {
   intakeV(600);
-  rollerV(100);
+  rollerV(-200);
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2) == 1) {
   intakeV(-600);
 }
 else{
   intakeStop();
-}
-//Shoot and Roller + Angle Changer
-if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
-  shoot();
-}
-else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) == 1) {
-  def::indexerLever.set_value(true);
-  shoot();
-}
-else{
-  def::indexerLever.set_value(false);
+  def::angleLever.set_value(false);
   def::Roller_Indexer.moveVelocity(0);
   pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(-4));
 }
