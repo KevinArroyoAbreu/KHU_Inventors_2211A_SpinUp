@@ -13,20 +13,47 @@ and programming skills*/
 //#1: rollerAuton ->
 /*-------------------------------------------------------------------------*/
 void rollerAuton(){
+  //Turn Roller
   drive->moveDistance(-1_in);
   scoreRollerAuton();
+  //Approach Shooting Pos. #1
   drive->moveDistance(2_in);
-  drive->turnAngle(90_deg);
-//  intakeV(-600);
-//  drive->moveDistance(33_in);
-  flySpinToV(300);
-//  drive->turnAngle(-70_deg);
-  pros::delay(2000);
+  flySpinToV(535);
+  drive->turnAngle(50_deg);
+  drive->moveDistance(20_in);
+  //Align and Shoot Preloads
+  drive->turnAngle(-64_deg);
   shoot();
-//  pros::delay(4000);
-//  flyStop();
-//  rollerStop();
-//  intakeStop(); */
+  pros::delay(500);
+  rollerStop();
+  pros::delay(800);
+  rollerV(200);
+  pros::delay(2000);
+  //Prepare & approach shooting Pos. #2
+  flySpinToV(450);
+  rollerV(-200);
+  intakeV(600);
+  drive->turnAngle(70_deg);
+  //Intake discs
+  drive->moveDistance(30_in);
+  //Align and shoot
+  drive->turnAngle(-90_deg);
+  shoot();
+  intakeV(-600);
+  pros::delay(500);
+  rollerStop();
+  pros::delay(500);
+  rollerV(200);
+  pros::delay(500);
+  rollerStop();
+  flySpinToV(500);
+  pros::delay(600);
+  rollerV(200);
+  pros::delay(2000);
+  //All subsystems shut down
+  flyStop();
+  rollerStop();
+  intakeStop();
 
 
 }
