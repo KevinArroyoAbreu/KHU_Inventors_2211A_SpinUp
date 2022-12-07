@@ -62,18 +62,35 @@ void rollerAuton(){
 //#2: nonRollerAuton ->
 /*-------------------------------------------------------------------------*/
 void nonRollerAuton(){
-  flySpinToV(300);
-  pros::delay(2000);
-  shoot();
-  pros::delay(4000);
-  flyStop();
-  rollerStop();
-  liftLever();
-  drive->moveDistance(-25_in);
-  drive->turnAngle(95_deg);
-  drive->moveDistance(-5_in);
-  scoreRollerAuton();
-  drive->moveDistance(2_in);
+  //Intake 1 disc and align with goal
+flySpinToV(480);
+ drive->moveDistanceAsync(32_in);
+ intakeV(600);
+ rollerV(-200);
+ pros::delay(1200);
+ drive->waitUntilSettled();
+ drive->turnAngleAsync(39_deg);
+ pros::delay(200);
+ intakeStop();
+ drive->waitUntilSettled();
+ drive->moveDistance(6_in);
+ shoot();
+ pros::delay(800);
+ rollerStop();
+ intakeV(600);
+ pros::delay(1500);
+ rollerV(200);
+ pros::delay(2000);
+ flyStop();
+ rollerStop();
+ drive->turnAngle(-89_deg);
+ drive->moveDistanceAsync(-52_in);
+ intakeV(600);
+ drive->waitUntilSettled();
+ drive->turnAngle(55_deg);
+ drive->moveDistance(-6_in);
+ scoreRollerAuton();
+ drive->moveDistance(3_in);
 
 
 
