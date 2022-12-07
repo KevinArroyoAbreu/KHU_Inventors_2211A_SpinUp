@@ -118,7 +118,7 @@ void fullWpAuton(){
 }
 
 /*-------------------------------------------------------------------------*/
-//#4: progSkills --> Programming Skills Routine
+//#4: progSkills --> Programming Skills Routine (USE ONLY 1 PRELOAD!!!!!) to prevent jamming
 /*-------------------------------------------------------------------------*/
 void  progSkills(){
   rollerV(200);//Score Roller 1
@@ -126,18 +126,35 @@ void  progSkills(){
   pros::delay(200);
   stopWColor();
   //-------------------------
-  drive->turnAngle(30_deg);
-  //drive->moveDistance(10_in);
-//  drive->turnAngle(90_deg);
-  //rollerV(200);  //Score Roller 2
-//  drive->moveDistance(-4_in);
-//  pros::delay(200);
-//  stopWColor();
+  intakeV(600);
+  rollerV(-200);
+  drive->turnAngle(-40_deg);
+  drive->moveDistance(22_in);
+  drive->turnAngle(130_deg);
+  rollerV(200);  //Score Roller 2
+  drive->moveDistance(-8_in);
+  pros::delay(200);
+  stopWColor();
   //------------------------
-//  drive->moveDistance(15_in);
-//  drive->turnAngle(-80_deg);
-//  drive->moveDistance(-6_in);
-//  drive->turnAngle(45_deg);
+  drive->moveDistance(4_in);
+  drive->turnAngle(-90_deg);
+  flySpinToV(350); //normal shooting
+  drive->moveDistance(45_in);
+  shoot();  //Score 2 discs( 1 preload + 1 intaked)
+  pros::delay(2000);
+  drive->moveDistance(-12_in);//push possibly unshot disc to be shot / align with disc
+  drive->turnAngle(90_deg);
+  flyStop();
   //------------------------
-  deployExpansion();
+  intakeV(600);//intake 2 discs on path
+  rollerV(-200);
+  drive->moveDistance(60_in);
+  // Align with blue goal
+  flySpinToV(360);
+  drive->turnAngle(45_deg);
+  shoot();//shoot 2 intaked discs
+  pros::delay(2000);
+
+
+  //deployExpansion();
 }

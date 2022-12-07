@@ -33,7 +33,7 @@ void rollerV(int velocity){
   def::Roller_Indexer.moveVelocity(velocity);
 }
 void stopWColor(){
-  if(22 <= def::optical.get_hue() >= 0 || 340 <= def::optical.get_hue() <= 360 ){
+  if(22 <= def::optical.get_hue() >= 0.01 || 340 <= def::optical.get_hue() <= 359.99 ){
     pros::delay(0);
     def::Roller_Indexer.moveVelocity(0);
    }
