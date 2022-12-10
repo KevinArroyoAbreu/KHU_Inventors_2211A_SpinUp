@@ -122,38 +122,94 @@ void fullWpAuton(){
 /*-------------------------------------------------------------------------*/
 void  progSkills(){
   rollerV(200);//Score Roller 1
-  drive->moveDistance(-1_in);
-  pros::delay(200);
+  drive->moveDistance(-2_in);
+  pros::delay(300);
   stopWColor();
   //-------------------------
   intakeV(600);
   rollerV(-200);
   drive->turnAngle(-40_deg);
   drive->moveDistance(22_in);
-  drive->turnAngle(130_deg);
+  drive->turnAngle(135_deg);
   rollerV(200);  //Score Roller 2
-  drive->moveDistance(-8_in);
-  pros::delay(200);
+  drive->moveDistance(-9_in);
+  pros::delay(300);
   stopWColor();
   //------------------------
   drive->moveDistance(4_in);
-  drive->turnAngle(-90_deg);
+  drive->turnAngle(-95_deg);
   flySpinToV(350); //normal shooting
-  drive->moveDistance(45_in);
+  drive->moveDistance(48_in);
   shoot();  //Score 2 discs( 1 preload + 1 intaked)
   pros::delay(2000);
-  drive->moveDistance(-12_in);//push possibly unshot disc to be shot / align with disc
+  drive->moveDistance(-16_in);//push possibly unshot disc to be shot / align with disc
+  pros::delay(1500);
   drive->turnAngle(90_deg);
   flyStop();
   //------------------------
-  intakeV(600);//intake 2 discs on path
+  //intake 2 discs on path
   rollerV(-200);
-  drive->moveDistance(60_in);
+  drive->moveDistance(70_in);
   // Align with blue goal
   flySpinToV(360);
-  drive->turnAngle(45_deg);
+  drive->turnAngle(55_deg);
+  intakeV(-600);//prevent jamming
+  pros::delay(500);
   shoot();//shoot 2 intaked discs
   pros::delay(2000);
+  //--------------------------
+  //Approach 3rd roller
+  drive->moveDistance(-5_in);
+  drive->turnAngle(-95_deg);
+  flySpinToV(370);
+  drive->moveDistance(35_in);
+  //Align with blue goal and score discs
+  drive->turnAngle(135_deg);
+  shoot();//shoot 2 intaked discs
+  pros::delay(3000);
+  //Approach 3rd roller
+  drive->moveDistance(-4_in);//align with unobstructed path
+  drive->turnAngle(-135_deg);
+  drive->moveDistance(36_in);
+  //Align with 3rd roller & score it
+  drive->turnAngle(-135_deg);
+  rollerV(200);  //Score Roller 3
+  drive->moveDistance(-9_in);
+  pros::delay(300);
+  stopWColor();
+  //--------------------------
+  //Approach roller 4
+  drive->turnAngle(40_deg);
+  intakeStop();
+  drive->moveDistance(22_in);
+  drive->turnAngle(-145_deg);
+  rollerV(200);  //Score Roller 4
+  drive->moveDistance(-7_in);
+  pros::delay(300);
+  stopWColor();
+  //Approach red goal
+  drive->moveDistance(2_in);
+  drive->turnAngle(90_deg);
+  intakeV(600);
+  drive->moveDistance(45_in);
+  shoot();//shoot 2 intaked discs
+  pros::delay(2000);
+  //Approach expanding location
+  drive->moveDistance(-15_in);
+  pros::delay(500);//wait for possibly stuck disc to shoot
+  drive->moveDistance(-45_in);
+  drive->turnAngle(-45_deg);//optimal expanding robot heading
+  //expand
+  deployExpansion();
+  ////END-OF-ROUTINE////
+  //__________________//
+  //Expected Results: //
+  // --4x Rollers     //
+  // --6x High Discs  //
+  // -- ~20 tiles     //
+  //__________________//
+  // TOTAL: ~130pts   //
+  //////////////////////
 
 
   //deployExpansion();

@@ -70,10 +70,6 @@ else{
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
   shoot();
 }
-else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) == 1) {
-  def::angleLever.set_value(true);
-  shoot();
-}
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) == 1) {
   intakeV(600);
   rollerV(-200);
@@ -83,9 +79,8 @@ else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2) == 1) {
 }
 else{
   intakeStop();
-  def::angleLever.set_value(false);
-  def::Roller_Indexer.moveVelocity(0);
   pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(-4));
+  pros::delay(20);//prevent data loss
 }
 /*------------------------------------------*/
 //Expansion; Operator Control:
