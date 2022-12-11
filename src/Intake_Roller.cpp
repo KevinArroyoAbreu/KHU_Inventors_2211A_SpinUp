@@ -10,16 +10,21 @@
 
 //Functions
 void intakeV(int velocity){
+ def::pressureLever.set_value(true);
  def::Intake.moveVelocity(velocity);
 }
 void intakeStop(){
   def::Intake.moveVelocity(0);
 }
 void shoot(){
+ lowerLever();
  def::Roller_Indexer.moveVelocity(200);
 }
+void lowerLever(){
+ def::pressureLever.set_value(false);
+}
 void liftLever(){
- def::angleLever.set_value(false);
+ def::pressureLever.set_value(true);
 }
 void scoreRollerAuton(){
  def::Roller_Indexer.moveVelocity(200);

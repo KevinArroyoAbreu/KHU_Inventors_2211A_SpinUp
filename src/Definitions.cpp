@@ -35,7 +35,7 @@ namespace def
 
    //Pneumatics (Indexer)
    //Reservoir: Bottom
-   pros::ADIDigitalOut angleLever('D');
+   pros::ADIDigitalOut pressureLever('D');
 
    //*------------------------Sensors----------------------*//
    //Senses robot movements; accerelometer + gyroscope
