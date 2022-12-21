@@ -18,7 +18,7 @@ void rollerAuton(){
   scoreRollerAuton();
   //Approach Shooting Pos. #1
   drive->moveDistance(2_in);
-  flySpinToV(535);
+  flySpinToV(545);
   drive->turnAngle(50_deg);
   drive->moveDistance(20_in);
   //Align and Shoot Preloads
@@ -33,7 +33,7 @@ void rollerAuton(){
   flySpinToV(450);
   rollerV(-200);
   intakeV(600);
-  drive->turnAngle(70_deg);
+  drive->turnAngle(76_deg);
   //Intake discs
   drive->moveDistance(30_in);
   //Align and shoot
@@ -63,13 +63,13 @@ void rollerAuton(){
 /*-------------------------------------------------------------------------*/
 void nonRollerAuton(){
   //Intake 1 disc and align with goal
-flySpinToV(480);
+flySpinToV(470);
  drive->moveDistanceAsync(32_in);
  intakeV(600);
  rollerV(-200);
  pros::delay(1200);
  drive->waitUntilSettled();
- drive->turnAngleAsync(39_deg);
+ drive->turnAngleAsync(33_deg);
  pros::delay(200);
  intakeStop();
  drive->waitUntilSettled();
@@ -88,7 +88,7 @@ flySpinToV(480);
  intakeV(600);
  drive->waitUntilSettled();
  drive->turnAngle(55_deg);
- drive->moveDistance(-6_in);
+ drive->moveDistance(-9_in);
  scoreRollerAuton();
  drive->moveDistance(3_in);
 
