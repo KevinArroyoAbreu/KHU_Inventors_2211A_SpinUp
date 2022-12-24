@@ -33,7 +33,7 @@ namespace def
   //Pneumatics (Expansion)
   //Reservoir: Top
   extern pros::ADIDigitalOut expansion;
-
+  extern pros::ADIDigitalOut expansionSides;
 
   //Pneumatics (Indexer)
   //Reservoir: Bottom

@@ -11,4 +11,5 @@
 //Functions
 void deployExpansion(){
   def::expansion.set_value(true);
+  def::expansionSides.set_value(true);
 }

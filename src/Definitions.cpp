@@ -31,6 +31,7 @@ namespace def
    //Pneumatics (Expansion)
    //Reservoir: Top
    pros::ADIDigitalOut expansion('C');
+   pros::ADIDigitalOut expansionSides('B');
 
 
    //Pneumatics (Indexer)
