@@ -16,7 +16,8 @@ void runAuton(){
   /*------------------------------------------*/
   //SELECTED AUTON ROUTINE:
   /*------------------------------------------*/
-    rollerAuton();
+  turnAngle(90);
+  //  rollerAuton();
   //  nonRollerAuton();
   //  fullWpAuton();
   //  progSkills();
@@ -54,7 +55,7 @@ int turnMovementFunct = turnJoystick/1.25;
 //Shooter; Operator Control:
 /*------------------------------------------*/
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) == 1) {
-  flySpinToV(330);//310
+  flySpinToV(340);//350
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_A) == 1) {
   flySpinToV(600);

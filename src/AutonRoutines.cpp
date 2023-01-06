@@ -14,7 +14,7 @@ and programming skills*/
 /*-------------------------------------------------------------------------*/
 void rollerAuton(){
   //Turn Roller
-  drive->moveDistance(-1_in);
+/*  drive->moveDistance(-1_in);
   scoreRollerAuton();
   //Approach Shooting Pos. #1
   drive->moveDistance(2_in);
@@ -54,7 +54,7 @@ void rollerAuton(){
   flyStop();
   rollerStop();
   intakeStop();
-
+*/
 
 }
 
