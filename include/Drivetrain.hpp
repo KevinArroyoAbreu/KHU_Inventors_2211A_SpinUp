@@ -13,6 +13,7 @@
 /*-----------------------------------------------------------------*/
 //Chassis Controller builder: PID controller
 /*-----------------------------------------------------------------*/
+extern std::shared_ptr<ChassisController> turn;
 extern std::shared_ptr<ChassisController> drive;
 
 /*-----------------------------------------------------------------*/
