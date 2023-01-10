@@ -16,9 +16,7 @@ void runAuton(){
   /*------------------------------------------*/
   //SELECTED AUTON ROUTINE:
   /*------------------------------------------*/
-//  turnAngle(90);
-  turn->turnAngle(90_deg);
-  //  rollerAuton();
+    rollerAuton();
   //  nonRollerAuton();
   //  fullWpAuton();
   //  progSkills();
