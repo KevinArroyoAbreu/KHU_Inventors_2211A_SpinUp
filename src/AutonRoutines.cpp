@@ -176,7 +176,7 @@ void  progSkills(){
   pros::delay(0);
   rollerStop();
   //Approach expanding location
-  skills->moveDistance(15_in);
+  skills->moveDistance(20_in);
   turn->turnAngle(-48_deg);
   //expand
   deployExpansion();
