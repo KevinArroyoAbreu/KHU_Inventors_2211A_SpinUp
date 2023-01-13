@@ -18,35 +18,29 @@ void rollerAuton(){
   scoreRollerAuton();
   //Approach Shooting Pos. #1
   drive->moveDistance(2_in);
-  flySpinToV(530);
+  flySpinToV(510);
   turn->turnAngle(50_deg);
   drive->moveDistance(20_in);
   //Align and Shoot Preloads
-  turn->turnAngle(-62_deg);
+  turn->turnAngle(-65_deg);
   shoot();
   pros::delay(500);
   rollerStop();
-  pros::delay(800);
+  flySpinToV(540);
+  pros::delay(1000);
   rollerV(200);
   pros::delay(2000);
   //Prepare & approach shooting Pos. #2
-  flySpinToV(405);
+  flySpinToV(420);
   rollerV(-200);
   intakeV(600);
-  turn->turnAngle(72_deg);
+  turn->turnAngle(75_deg);
   //Intake discs
   drive->moveDistance(30_in);
   //Align and shoot
-  turn->turnAngle(-87_deg);
+  turn->turnAngle(-95_deg);
   shoot();
-  pros::delay(500);
-  rollerStop();
-  pros::delay(500);
-  rollerV(200);
-  pros::delay(500);
-  rollerStop();
-  rollerV(200);
-  pros::delay(2000);
+  pros::delay(5000);
   //All subsystems shut down
   flyStop();
   rollerStop();
