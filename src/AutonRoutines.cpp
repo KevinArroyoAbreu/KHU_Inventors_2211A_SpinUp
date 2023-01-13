@@ -58,32 +58,23 @@ void rollerAuton(){
 /*-------------------------------------------------------------------------*/
 void nonRollerAuton(){
   //Intake 1 disc and align with goal
-flySpinToV(470);
- drive->moveDistanceAsync(32_in);
+ flySpinToV(460);
  intakeV(600);
  rollerV(-200);
- pros::delay(1200);
- drive->waitUntilSettled();
- turn->turnAngleAsync(33_deg);
- pros::delay(200);
- intakeStop();
- drive->waitUntilSettled();
+ drive->moveDistance(32_in);
+ turn->turnAngle(36_deg);
  drive->moveDistance(6_in);
+ intakeV(-600);
  shoot();
- pros::delay(800);
- rollerStop();
- intakeV(600);
- pros::delay(1500);
- rollerV(200);
- pros::delay(2000);
+ pros::delay(3000);
  flyStop();
  rollerStop();
- turn->turnAngle(-89_deg);
+ turn->turnAngle(-92_deg);
  drive->moveDistanceAsync(-52_in);
  intakeV(600);
  drive->waitUntilSettled();
  turn->turnAngle(55_deg);
- drive->moveDistance(-9_in);
+ drive->moveDistance(-6_in);
  scoreRollerAuton();
  drive->moveDistance(3_in);
 }
@@ -185,7 +176,7 @@ void  progSkills(){
   //__________________//
   //Expected Results: //
   // --4x Rollers     //
-  // -- x High Discs  //
+  // -- 6x High Discs  //
   // -- ~26 tiles     //
   //__________________//
   // TOTAL: ~100pts   //
