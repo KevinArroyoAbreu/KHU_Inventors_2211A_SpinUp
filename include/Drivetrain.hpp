@@ -22,5 +22,6 @@ extern std::shared_ptr<ChassisController> drive;
 /*-----------------------------------------------------------------*/
 //Set brake mode to coast
 void setDriveCoast();
+void setDriveBrake();
 //turn function
 void turnAngle(int deg);

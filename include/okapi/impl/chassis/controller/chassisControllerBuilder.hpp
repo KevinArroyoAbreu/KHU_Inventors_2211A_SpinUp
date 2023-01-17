@@ -174,7 +174,7 @@ class ChassisControllerBuilder {
    * @return An ongoing builder.
    */
   ChassisControllerBuilder &withSensors(const RotationSensor &ileft, const RotationSensor &iright);
-
+  ChassisControllerBuilder &withSensors(const pros::Imu &inertial);
   /**
    * Sets the sensors. The default sensors are the motor's integrated encoders.
    *

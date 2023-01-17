@@ -17,6 +17,7 @@ QUANTITY_TYPE(0, 0, 0, 1, QAngle)
 
 constexpr QAngle radian(1.0);
 constexpr QAngle degree = static_cast<double>(2_pi / 360.0) * radian;
+//constexpr QAngle degree = static_cast<double>(2_pi / 360.0) * radian;
 
 inline namespace literals {
 constexpr QAngle operator"" _rad(long double x) {

@@ -67,6 +67,9 @@ class ChassisController {
    *
    * @param idegTarget angle to turn for in motor degrees
    */
+   //-
+  virtual void turnPID(QAngle idegTarget, double imaxVelocity) = 0;
+   //-
   virtual void turnRaw(double idegTarget) = 0;
 
   /**

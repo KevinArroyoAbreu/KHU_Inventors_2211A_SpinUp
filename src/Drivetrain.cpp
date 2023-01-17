@@ -64,6 +64,12 @@ void setDriveCoast(){
   pros::c::motor_set_brake_mode(13, MOTOR_BRAKE_COAST);
   pros::c::motor_set_brake_mode(14, MOTOR_BRAKE_COAST);
 }
+void setDriveBrake(){
+  pros::c::motor_set_brake_mode(11, MOTOR_BRAKE_BRAKE);
+  pros::c::motor_set_brake_mode(12, MOTOR_BRAKE_BRAKE);
+  pros::c::motor_set_brake_mode(13, MOTOR_BRAKE_BRAKE);
+  pros::c::motor_set_brake_mode(14, MOTOR_BRAKE_BRAKE);
+}
 //turn function
 void turnAngle(int deg){
   int v = 200; // rpm velocity of turns

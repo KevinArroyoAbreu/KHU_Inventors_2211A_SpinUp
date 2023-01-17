@@ -11,15 +11,24 @@
 
 
 
-
 void runAuton(){
+//  pros::c::imu_reset(0);
   /*------------------------------------------*/
   //SELECTED AUTON ROUTINE:
   /*------------------------------------------*/
-    rollerAuton();
+  //desireValue = 5;
+  //turnPID();
+
+  turnInertial(90,100);
+  //turn->turnAngle(90_deg);
+  //  rollerAuton();
   //  nonRollerAuton();
   //  fullWpAuton();
   //  progSkills();
+  //while(1)
+//  {
+    pros::screen::print(TEXT_MEDIUM, 3, "Inertial: %f", def::inertial.get_heading());
+//  pros::delay(20);
 }
 
 

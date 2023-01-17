@@ -40,7 +40,7 @@ namespace def
 
    //*------------------------Sensors----------------------*//
    //Senses robot movements; accerelometer + gyroscope
-   //pros::Imu inertial;
+   pros::Imu inertial(21);
    //Optical Sensor (on Roller Spinner)
    pros::Optical optical(9);
    //*------------------------Controller----------------------*//
