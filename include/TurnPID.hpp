@@ -7,10 +7,12 @@
 
 extern std::shared_ptr<ChassisController> pid;
 void turnRight(int speed);
+void turnLeft(int speed);
 void driveStop();
 
-void turnInertial (int deg, int Speed);
-
+void turnInertialL(int deg, int Speed);
+void turnInertialR(int deg, int Speed);
+void rotate( int degrees, int speed);
 
 
 
@@ -19,15 +21,11 @@ void turnInertial (int deg, int Speed);
     extern float turnkI;
     extern float turnkD;
 
-    extern int desireValue;//DEGREES
-    extern int desiredTunerValue;
 
-    extern int error;
+    extern double error;
     extern int prevError;
     extern int derivative;
     extern int totalError;
     extern int turnDifference;
 
-    extern bool enableTurnPID;
-
-    extern int turnPID();
+    void turnPID(int DesireValue, int direction);

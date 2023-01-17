@@ -26,7 +26,8 @@ void initialize() {
 	pros::lcd::initialize();
 	pros::lcd::set_text(3, "THE STRIKER");
 	def::Flywheel.setGearing(AbstractMotor::gearset::blue);
-	pros::screen::print(TEXT_MEDIUM, 3, "Inertial: %f", def::inertial.get_heading());
+	def::inertial.tare_rotation();
+	def::inertial.set_heading(1);
 }
 
 /**

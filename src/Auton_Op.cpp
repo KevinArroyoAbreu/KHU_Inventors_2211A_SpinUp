@@ -15,20 +15,27 @@ void runAuton(){
 //  pros::c::imu_reset(0);
   /*------------------------------------------*/
   //SELECTED AUTON ROUTINE:
+  //--TURNS--------------//
+  //----Left = 0---------//
+  //----Right = 1--------//
+  //---------------------//
+  //--Remember: absolute-//
+  //--heading is used----//
   /*------------------------------------------*/
-  //desireValue = 5;
-  //turnPID();
-
-  turnInertial(90,100);
+  turnPID(90, 1);
+  drive->moveDistance(20_in);
+  turnPID(180, 1);
+  //turnInertialR(90, 60);
   //turn->turnAngle(90_deg);
   //  rollerAuton();
   //  nonRollerAuton();
   //  fullWpAuton();
   //  progSkills();
-  //while(1)
+//  while(1)
 //  {
-    pros::screen::print(TEXT_MEDIUM, 3, "Inertial: %f", def::inertial.get_heading());
-//  pros::delay(20);
+//    pros::screen::print(TEXT_LARGE, 3, "Inertial: %f", def::inertial.get_heading());
+//    pros::delay(20);
+//  }
 }
 
 
