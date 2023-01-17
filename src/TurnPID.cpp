@@ -48,24 +48,27 @@
     int turnDifference;
 
 
-    void turnPID(int desireValue, int direction){//degrees
+    void turnPID(int desireValue){//degrees
       bool turning = true;
 
       while(turning){
 
-        double  heading = def::inertial.get_heading();
-
+        double  heading;
+        
+        if(180 >= def::inertial.get_heading() & def::inertial.get_heading() >= 0){
+          heading = def::inertial.get_heading();
+        }
+        else if( 360 >= def::inertial.get_heading() & def::inertial.get_heading() >= 180){
+          heading = def::inertial.get_heading() - 360;
+        }
 
         pros::screen::print(TEXT_MEDIUM, 3, "Heading: %f", heading);
         totalError = error;
 
         //Potential
-        if(direction == 0){ // for left turns
-          error = abs( (360 - desireValue) - heading );
-        }
-        else if(direction == 1){ // for right turns
-          error =  desireValue - heading;
-        }
+
+          error = abs( desireValue - heading );
+
 
         pros::screen::print(TEXT_MEDIUM, 4, "Error: %f", error);
         //Derivative
@@ -75,11 +78,11 @@
         totalError += error;
 
         double power = error * turnkP + derivative * turnkD + totalError * turnkI;
-        if(direction == 0){ // for left turns
-          turnLeft(power);
+        if(desireValue <= 0){ // for left turns
+          turnLeft(2*power);
         }
-        else if(direction == 1){ // for right turns
-          turnRight(power);
+        else if(desireValue >= 0){ // for right turns
+          turnRight(2*power);
         }
 
 
@@ -91,37 +94,6 @@
       }
       driveStop();
     }
-
-  void rotate( int degrees, int speed){
-    //define our direction, basado a donde vas
-    int direction = abs(degrees) / degrees;
-    // Resetiar el Gyro
-    def::inertial.set_heading(0); // Aqui cambiarlo a inertial si sale un error
-    // Gira a la direcion
-    turnRight(speed);
-
-        while(fabs(def::inertial.get_heading())< abs(degrees * 10)-50){// esta function es para que el valor lo cambie al correcto porque esta en 350
-        pros::delay(10);
-        }
-    // que descanse el inertial
-    if(fabs(def::inertial.get_heading())> abs(degrees * 10)){
-
-       turnRight(50);//corrective driving
-
-        while(fabs(def::inertial.get_heading()> abs(degrees * 10))){// esta function es para que el valor lo cambie al correcto porque esta en 350
-        pros::delay(10);
-        }
-    }
-    else if (fabs(def::inertial.get_heading())> abs(degrees * 10)){
-
-        turnLeft(50);// corrective driving
-
-        while(fabs(def::inertial.get_heading()> abs(degrees * 10))){// esta function es para que el valor lo cambie al correcto porque esta en 350
-        pros::delay(10);
-        }
-      }
-      driveStop();
-  }
 
 
 

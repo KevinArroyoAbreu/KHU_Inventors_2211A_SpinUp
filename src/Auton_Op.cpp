@@ -12,22 +12,12 @@
 
 
 void runAuton(){
-//  pros::c::imu_reset(0);
   /*------------------------------------------*/
   //SELECTED AUTON ROUTINE:
-  //--TURNS--------------//
-  //----Left = 0---------//
-  //----Right = 1--------//
-  //---------------------//
-  //--Remember: absolute-//
-  //--heading is used----//
   /*------------------------------------------*/
-  turnPID(90, 1);
-  drive->moveDistance(20_in);
-  turnPID(180, 1);
-  //turnInertialR(90, 60);
-  //turn->turnAngle(90_deg);
-  //  rollerAuton();
+  //turnPID(-90);
+  drive->moveDistance(24_in);
+  //    rollerAuton();
   //  nonRollerAuton();
   //  fullWpAuton();
   //  progSkills();

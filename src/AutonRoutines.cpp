@@ -8,12 +8,12 @@ and programming skills*/
 //Include all header files
 #include "main.h"
 //___________________________________________________\\
-//--TURNS--------------//
-//----Left = 0---------//
-//----Right = 1--------//
-//---------------------//
-//--Remember: absolute-//
-//--heading is used----//
+//--------TURNS----------//
+//----Left = (-)---------//
+//----Right = (+)--------//
+//-----------------------//
+//--Remember: absolute---//
+//--heading is used------//
 //---------------------------------------------------\\
 
 
@@ -27,10 +27,12 @@ void rollerAuton(){
   //Approach Shooting Pos. #1
   drive->moveDistance(2_in);
   flySpinToV(510);
-  turn->turnAngle(50_deg);
+  //50 right
+  turnPID(50);
   drive->moveDistance(20_in);
   //Align and Shoot Preloads
-  turn->turnAngle(-65_deg);
+  //-65 left
+  turnPID(-15);
   shoot();
   pros::delay(500);
   rollerStop();
@@ -42,11 +44,13 @@ void rollerAuton(){
   flySpinToV(420);
   rollerV(-200);
   intakeV(600);
-  turn->turnAngle(75_deg);
+  //75 right
+  turnPID(90);
   //Intake discs
   drive->moveDistance(30_in);
   //Align and shoot
-  turn->turnAngle(-95_deg);
+  //-95 left
+  turnPID(-5);
   shoot();
   pros::delay(5000);
   //All subsystems shut down
