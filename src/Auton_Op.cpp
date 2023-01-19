@@ -16,11 +16,14 @@ void runAuton(){
   //SELECTED AUTON ROUTINE:
   /*------------------------------------------*/
   //turnPID(-90);
-  drive->moveDistance(24_in);
-  //    rollerAuton();
-  //  nonRollerAuton();
-  //  fullWpAuton();
-  //  progSkills();
+//  drive->moveDistance(24_in);
+//  turnPID(-15);
+  //   rollerAuton();
+  //   nonRollerAuton();
+  //   fullWpAuton();
+  //   progSkills();
+     progSkillsPID();
+
 //  while(1)
 //  {
 //    pros::screen::print(TEXT_LARGE, 3, "Inertial: %f", def::inertial.get_heading());
@@ -32,8 +35,9 @@ void runAuton(){
 void runOp(){
   //set brake mode to coast
   setDriveCoast();
+  pros::screen::erase();
   while (true) {
-
+  pros::screen::print(TEXT_LARGE, 3, "Flywheel: %f", def::Flywheel.getActualVelocity());
 /*------------------------------------------*/
     //Drivetrain movement; Operator Control:
 /*------------------------------------------*/

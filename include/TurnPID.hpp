@@ -28,4 +28,4 @@ void rotate( int degrees, int speed);
     extern int totalError;
     extern int turnDifference;
 
-    void turnPID(int DesireValue);
+    void turnPID(double DesireValue);

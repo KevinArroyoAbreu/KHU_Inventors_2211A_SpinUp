@@ -21,38 +21,40 @@ and programming skills*/
 //#1: rollerAuton ->
 /*-------------------------------------------------------------------------*/
 void rollerAuton(){
+  flySpinToV(530);
   //Turn Roller
   drive->moveDistance(-1_in);
   scoreRollerAuton();
   //Approach Shooting Pos. #1
   drive->moveDistance(2_in);
-  flySpinToV(510);
-  //50 right
-  turnPID(50);
+  turnPID(50);//Right
+  rollerV(-200);
   drive->moveDistance(20_in);
   //Align and Shoot Preloads
-  //-65 left
-  turnPID(-15);
+  turnPID(-10);//Left
   shoot();
-  pros::delay(500);
+  pros::delay(800);
   rollerStop();
-  flySpinToV(540);
-  pros::delay(1000);
+//  flySpinToV(560);
+  pros::delay(2000);
   rollerV(200);
   pros::delay(2000);
   //Prepare & approach shooting Pos. #2
-  flySpinToV(420);
-  rollerV(-200);
+  flySpinToV(485);
   intakeV(600);
-  //75 right
-  turnPID(90);
+  turnPID(55);//Right
+  rollerV(-200);//prevent jamming
   //Intake discs
-  drive->moveDistance(30_in);
+  drive->moveDistance(20_in);
   //Align and shoot
-  //-95 left
-  turnPID(-5);
+  turnPID(-18);//Left
+  intakeV(-600);
   shoot();
-  pros::delay(5000);
+  pros::delay(800);
+  rollerStop();
+  pros::delay(2000);
+  rollerV(200);
+  pros::delay(3000);
   //All subsystems shut down
   flyStop();
   rollerStop();
@@ -64,25 +66,25 @@ void rollerAuton(){
 /*-------------------------------------------------------------------------*/
 void nonRollerAuton(){
   //Intake 1 disc and align with goal
- flySpinToV(460);
+ flySpinToV(433);
  intakeV(600);
  rollerV(-200);
  drive->moveDistance(32_in);
- turn->turnAngle(36_deg);
+ turnPID(41);
  drive->moveDistance(6_in);
  intakeV(-600);
  shoot();
- pros::delay(3000);
+ rollerV(150);
+ pros::delay(4000);
  flyStop();
  rollerStop();
- turn->turnAngle(-92_deg);
- drive->moveDistanceAsync(-52_in);
- intakeV(600);
- drive->waitUntilSettled();
- turn->turnAngle(55_deg);
- drive->moveDistance(-6_in);
+ turnPID(-43);
+ drive->moveDistance(-52_in);
+ turnPID(0.2);
+ drive->moveDistance(-7.5_in);
  scoreRollerAuton();
- drive->moveDistance(3_in);
+ drive->moveDistance(2_in);
+ intakeStop();
 }
 
 /*-------------------------------------------------------------------------*/
@@ -159,7 +161,7 @@ void  progSkills(){
   //align with 3rd roller and score it
   turn->turnAngle(-45_deg);
   rollerV(-200);
-  skills->moveDistance(-14_in);
+  skills->moveDistance(-15_in);
   rollerStop();
   skills->moveDistance(3_in);
   //-------------------------
@@ -169,12 +171,103 @@ void  progSkills(){
   skills->moveDistance(22_in);
   turn->turnAngle(125_deg);
   rollerV(-200);  //Score Roller 4
-  skills->moveDistance(-14_in);
+  skills->moveDistance(-13_in);
   pros::delay(0);
   rollerStop();
   //Approach expanding location
   skills->moveDistance(20_in);
   turn->turnAngle(-48_deg);
+  //expand
+  deployExpansion();
+
+  ////END-OF-ROUTINE////
+  //__________________//
+  //Expected Results: //
+  // --4x Rollers     //
+  // -- 6x High Discs  //
+  // -- ~26 tiles     //
+  //__________________//
+  // TOTAL: ~100pts   //
+  //////////////////////
+}
+
+
+
+
+
+
+/*-------------------------------------------------------------------------*/
+//#5: progSkillsPID --> Skills with PID turns
+/*-------------------------------------------------------------------------*/
+void  progSkillsPID(){
+  rollerV(-200);//Score Roller 1
+  skills->moveDistance(-3_in);
+  pros::delay(0);
+  rollerStop();
+  skills->moveDistance(4_in);
+  //-------------------------
+  intakeV(600);
+  rollerV(-200);
+  turnPID(-40);
+  skills->moveDistance(20_in);
+  turnPID(88);
+  rollerV(-200);  //Score Roller 2
+  skills->moveDistance(-10_in);
+  pros::delay(0);
+  rollerStop();
+  //------------------------
+  skills->moveDistance(8_in);
+  turnPID(0);
+  flySpinToV(360); //normal shooting
+  skills->moveDistance(32_in);
+  turn->turnAngle(13_deg);//use no PID for small turns
+  intakeV(-600);//prevent Jamming
+  shoot();  //Score 2 discs( 1 preload + 1 intaked)
+  pros::delay(4000);
+  turnPID(90);
+  flyStop();
+  //------------------------
+  //intake 1 disc on path
+  intakeV(600);
+  rollerV(-200);
+  skills->moveDistance(20_in);
+  //Align with discs
+  turnPID(45);
+  //Intake 2 discs
+  skills->moveDistance(35_in);
+  flySpinToV(372);//Shot #2
+  // Align with blue goal
+  turnPID(-39);
+  intakeV(-600);//prevent jamming
+  pros::delay(500);
+  intakeV(-600);//prevent Jamming
+  shoot();//shoot 2-3 intaked discs
+  pros::delay(2000);
+  //--------------------------
+  //Approach 2nd roller pair
+  skills->moveDistance(-7_in);
+  turnPID(-126);
+  flyStop();
+  intakeStop();
+  skills->moveDistance(-65_in);
+  //align with 3rd roller and score it
+  turnPID(-180);
+  rollerV(-200); //Score Roller 3
+  skills->moveDistance(-13_in);
+  rollerStop();
+  skills->moveDistance(4_in);
+  //-------------------------
+  rollerV(-200);
+  turn->turnAngle(-40_deg);// opposite direction!
+  skills->moveDistance(23_in);
+  turn->turnAngle(130_deg);//opposite direction!
+  rollerV(-200);  //Score Roller 4
+  skills->moveDistance(-9_in);
+  pros::delay(0);
+  rollerStop();
+  //Approach expanding location
+  skills->moveDistance(20_in);
+  turn->turnAngle(-45_deg);
   //expand
   deployExpansion();
 

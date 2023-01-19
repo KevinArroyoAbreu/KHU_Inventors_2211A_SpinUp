@@ -48,13 +48,13 @@
     int turnDifference;
 
 
-    void turnPID(int desireValue){//degrees
+    void turnPID(double desireValue){//degrees
       bool turning = true;
 
       while(turning){
 
         double  heading;
-        
+
         if(180 >= def::inertial.get_heading() & def::inertial.get_heading() >= 0){
           heading = def::inertial.get_heading();
         }
@@ -78,10 +78,11 @@
         totalError += error;
 
         double power = error * turnkP + derivative * turnkD + totalError * turnkI;
-        if(desireValue <= 0){ // for left turns
+
+        if(heading > desireValue ){ // for left turns
           turnLeft(2*power);
         }
-        else if(desireValue >= 0){ // for right turns
+        else if(heading < desireValue){ // for right turns
           turnRight(2*power);
         }
 
