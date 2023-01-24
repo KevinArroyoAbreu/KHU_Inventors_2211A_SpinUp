@@ -21,40 +21,40 @@ and programming skills*/
 //#1: rollerAuton ->
 /*-------------------------------------------------------------------------*/
 void rollerAuton(){
-  flySpinToV(530);
+  flySpinToV(480);
   //Turn Roller
   drive->moveDistance(-1_in);
   scoreRollerAuton();
   //Approach Shooting Pos. #1
   drive->moveDistance(2_in);
-  turnPID(50);//Right
+  turnPID(48);//Right
   rollerV(-200);
-  drive->moveDistance(20_in);
+  drive->moveDistance(68_in);
   //Align and Shoot Preloads
-  turnPID(-10);//Left
+  turn->turnAngle(-89_deg);//Left
+  drive->moveDistance(6_in);
   shoot();
-  pros::delay(800);
-  rollerStop();
+  pros::delay(1000);
 //  flySpinToV(560);
-  pros::delay(2000);
+//  rollerStop();
+  pros::delay(1000);
   rollerV(200);
   pros::delay(2000);
   //Prepare & approach shooting Pos. #2
-  flySpinToV(485);
+/*  flySpinToV(535);
   intakeV(600);
   turnPID(55);//Right
   rollerV(-200);//prevent jamming
   //Intake discs
-  drive->moveDistance(20_in);
+  drive->moveDistance(26_in);
   //Align and shoot
   turnPID(-18);//Left
   intakeV(-600);
   shoot();
   pros::delay(800);
-  rollerStop();
   pros::delay(2000);
   rollerV(200);
-  pros::delay(3000);
+  pros::delay(3000);*/
   //All subsystems shut down
   flyStop();
   rollerStop();
@@ -81,7 +81,7 @@ void nonRollerAuton(){
  turnPID(-43);
  drive->moveDistance(-52_in);
  turnPID(0.2);
- drive->moveDistance(-7.5_in);
+ drive->moveDistance(-9_in);
  scoreRollerAuton();
  drive->moveDistance(2_in);
  intakeStop();
@@ -212,7 +212,7 @@ void  progSkillsPID(){
   skills->moveDistance(20_in);
   turnPID(88);
   rollerV(-200);  //Score Roller 2
-  skills->moveDistance(-10_in);
+  skills->moveDistance(-11.5_in);
   pros::delay(0);
   rollerStop();
   //------------------------
@@ -266,8 +266,9 @@ void  progSkillsPID(){
   pros::delay(0);
   rollerStop();
   //Approach expanding location
-  skills->moveDistance(20_in);
+  skills->moveDistance(22_in);
   turn->turnAngle(-45_deg);
+  skills->moveDistance(-12_in);
   //expand
   deployExpansion();
 
