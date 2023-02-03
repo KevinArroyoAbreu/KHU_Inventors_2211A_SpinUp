@@ -22,7 +22,7 @@ namespace def
    Motor driveFR(13);
    Motor driveRR(14);
    //Shooter
-   MotorGroup Flywheel({18, 20});
+   MotorGroup Flywheel({-18, 20});
    //Intake&Roller
    Motor Intake(19);
    Motor Roller_Indexer(-10);
