@@ -12,13 +12,14 @@
 void intakeV(int velocity){
  def::pressureLever.set_value(true);
  def::Intake.moveVelocity(velocity);
+ def::Roller_Indexer.moveVelocity(200);
 }
 void intakeStop(){
   def::Intake.moveVelocity(0);
 }
 void shoot(){
  lowerLever();
- def::Roller_Indexer.moveVelocity(200);
+ def::Roller_Indexer.moveVelocity(-200);
 }
 void lowerLever(){
  def::pressureLever.set_value(false);
