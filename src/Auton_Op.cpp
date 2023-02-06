@@ -48,7 +48,7 @@ void runOp(){
 int fwdJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y);
 int turnJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X);
 //b(x) = x^2
-int fwdMovementFunct = fwdJoystick^2;
+int fwdMovementFunct = fwdJoystick;
 int turnMovementFunct = turnJoystick/1.25;
 ///////////////////////////////////////////////////////////////////////////
 
@@ -90,7 +90,7 @@ else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2) == 1) {
 else{
   intakeStop();
   def::pressureLever.set_value(true);
-  pros::c::motor_move(-10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(-2));
+  pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(2));
   pros::delay(20);//prevent data loss
 }
 /*------------------------------------------*/
