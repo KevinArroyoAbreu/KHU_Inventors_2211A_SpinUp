@@ -9,8 +9,13 @@
 //___________________________________________________\\
 
 //Functions
-void deployExpansion(){
+void normalExpansion(){
   def::expansion.set_value(true);
-  pros::delay(500);
-  def::expansionSides.set_value(true);
+}
+void angledExpansion(){
+  def::expansionTilt.set_value(true);
+  pros::delay(300);
+  def::expansion.set_value(true);
+  pros::delay(300);
+  def::expansionTilt.set_value(false);
 }

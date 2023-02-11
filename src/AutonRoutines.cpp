@@ -178,7 +178,7 @@ void  progSkills(){
   skills->moveDistance(20_in);
   turn->turnAngle(-48_deg);
   //expand
-  deployExpansion();
+  normalExpansion();
 
   ////END-OF-ROUTINE////
   //__________________//

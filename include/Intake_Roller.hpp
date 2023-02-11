@@ -14,8 +14,8 @@
 void intakeV(int velocity);
 void intakeStop();
 void shoot();
-void lowerLever();
-void liftLever();
+void angleDown();
+void angleUp();
 void scoreRollerAuton();
 void rollerStop();
 void rollerV(int velocity);

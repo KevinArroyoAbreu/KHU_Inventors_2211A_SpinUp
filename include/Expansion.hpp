@@ -11,4 +11,5 @@
 //___________________________________________________\\
 
 //Functions
-void deployExpansion();
+void normalExpansion();
+void angledExpansion();

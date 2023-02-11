@@ -12,6 +12,8 @@
 
 
 void runAuton(){
+   //lower angle
+   angleDown();
   /*------------------------------------------*/
   //SELECTED AUTON ROUTINE:
   /*------------------------------------------*/
@@ -51,6 +53,8 @@ int turnJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pro
 int fwdMovementFunct = fwdJoystick;
 int turnMovementFunct = turnJoystick/1.25;
 ///////////////////////////////////////////////////////////////////////////
+    //lift angle Changer
+   angleUp();
 
     //LEFT
    pros::c::motor_move(11, fwdMovementFunct + turnMovementFunct);
@@ -64,13 +68,13 @@ int turnMovementFunct = turnJoystick/1.25;
 //Shooter; Operator Control:
 /*------------------------------------------*/
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) == 1) {
-  flySpinToV(340);//350
+  flySpinToV(350);//350
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_A) == 1) {
   flySpinToV(600);
 }
 else{
-  flyStop();
+  flySpinToV(250);//mantain momentum
 }
 
 /*------------------------------------------*/
@@ -89,7 +93,6 @@ else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2) == 1) {
 }
 else{
   intakeStop();
-  def::pressureLever.set_value(true);
   pros::c::motor_move(10, pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_Y)*(2));
   pros::delay(20);//prevent data loss
 }
@@ -97,8 +100,10 @@ else{
 //Expansion; Operator Control:
 /*------------------------------------------*/
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_X) == 1) {
-  deployExpansion();
-  pros::delay(1000);
+  normalExpansion();
+}
+if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_B) == 1) {
+  angledExpansion();
 }
 
 

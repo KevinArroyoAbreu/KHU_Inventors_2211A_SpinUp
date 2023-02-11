@@ -30,13 +30,13 @@ namespace def
    //*------------------------Pneumatics----------------------*//
    //Pneumatics (Expansion)
    //Reservoir: Top
-   pros::ADIDigitalOut expansion('C');
-   pros::ADIDigitalOut expansionSides('B');
+   pros::ADIDigitalOut expansion('B');
+   pros::ADIDigitalOut expansionTilt('C');
 
 
    //Pneumatics (Indexer)
    //Reservoir: Bottom
-   pros::ADIDigitalOut pressureLever('D');
+   pros::ADIDigitalOut angleChanger('D');
 
    //*------------------------Sensors----------------------*//
    //Senses robot movements; accerelometer + gyroscope
