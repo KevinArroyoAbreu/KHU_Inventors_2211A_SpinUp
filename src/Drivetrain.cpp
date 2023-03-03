@@ -15,13 +15,13 @@ std::shared_ptr<ChassisController> turn =
 ChassisControllerBuilder()
   .withMotors({11,-12},{-13,14} )
   // Blue gearset, 2.75" inch wheel diameter,  11 inch wheel track; 36/60 transmission
-  .withDimensions({AbstractMotor::gearset::blue, (60.0 / 36.0)}, {{2.75_in, 11_in}, imev5BlueTPR})
+  .withDimensions({AbstractMotor::gearset::blue, (60.0 / 36.0)}, {{3.25_in, 11_in}, imev5BlueTPR})
   //.withGains(
   //  {dkP, dkI, dkD}, // distance controller gains
   //  {tkP, tkI, tkD}, // turn controller gains
   //  {akP, akI, akD}
 //  )
-  .withMaxVelocity(100)
+  .withMaxVelocity(120)
   .withOdometry()
   .buildOdometry();
 
@@ -29,7 +29,7 @@ ChassisControllerBuilder()
   ChassisControllerBuilder()
     .withMotors({11,-12},{-13,14} )
     // Blue gearset, 2.75" inch wheel diameter,  11 inch wheel track; 36/60 transmission
-    .withDimensions({AbstractMotor::gearset::blue, (60.0 / 36.0)}, {{2.75_in, 11_in}, imev5BlueTPR})
+    .withDimensions({AbstractMotor::gearset::blue, (60.0 / 36.0)}, {{3.25_in, 11_in}, imev5BlueTPR})
   /*  .withGains(
       {dkP, dkI, dkD}, // distance controller gains
       {tkP, tkI, tkD}, // turn controller gains
@@ -44,7 +44,7 @@ ChassisControllerBuilder()
   ChassisControllerBuilder()
     .withMotors({11,-12},{-13,14} )
     // Blue gearset, 2.75" inch wheel diameter,  11 inch wheel track; 36/60 transmission
-    .withDimensions({AbstractMotor::gearset::blue, (60.0 / 36.0)}, {{2.75_in, 11_in}, imev5BlueTPR})
+    .withDimensions({AbstractMotor::gearset::blue, (60.0 / 36.0)}, {{3.25_in, 11_in}, imev5BlueTPR})
   /*  .withGains(
       {dkP, dkI, dkD}, // distance controller gains
       {tkP, tkI, tkD}, // turn controller gains
@@ -71,7 +71,7 @@ void setDriveBrake(){
   pros::c::motor_set_brake_mode(14, MOTOR_BRAKE_BRAKE);
 }
 //turn function
-void turnAngle(int deg){
+/*void turnAngle(int deg){
   int v = 200; // rpm velocity of turns
 
   float distance = 264*(3.14159)*(deg/360);
@@ -83,4 +83,4 @@ void turnAngle(int deg){
   pros::c::motor_move_relative(13, ticks, v);
   pros::c::motor_move_relative(14, -ticks, v);
 
-}
+}*/

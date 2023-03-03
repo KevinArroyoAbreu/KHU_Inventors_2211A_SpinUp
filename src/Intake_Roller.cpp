@@ -26,8 +26,8 @@ void angleUp(){
  def::angleChanger.set_value(true);
 }
 void scoreRollerAuton(){
- def::Roller_Indexer.moveVelocity(200);
- pros::delay(350);
+ def::Roller_Indexer.moveVelocity(-200);
+ pros::delay(400);
  def::Roller_Indexer.moveVelocity(0);
 }
 void rollerStop(){

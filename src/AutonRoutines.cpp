@@ -21,43 +21,39 @@ and programming skills*/
 //#1: rollerAuton ->
 /*-------------------------------------------------------------------------*/
 void rollerAuton(){
-  flySpinToV(480);
-  //Turn Roller
-  drive->moveDistance(-1_in);
-  scoreRollerAuton();
-  //Approach Shooting Pos. #1
-  drive->moveDistance(2_in);
-  turnPID(48);//Right
-  rollerV(-200);
-  drive->moveDistance(68_in);
-  //Align and Shoot Preloads
-  turn->turnAngle(-89_deg);//Left
-  drive->moveDistance(6_in);
+  //1)Shoot
+  flySpinToV(415);
+  pros::delay(2500);//gain rpm
   shoot();
-  pros::delay(1000);
-//  flySpinToV(560);
-//  rollerStop();
-  pros::delay(1000);
-  rollerV(200);
   pros::delay(2000);
-  //Prepare & approach shooting Pos. #2
-/*  flySpinToV(535);
-  intakeV(600);
-  turnPID(55);//Right
-  rollerV(-200);//prevent jamming
-  //Intake discs
-  drive->moveDistance(26_in);
-  //Align and shoot
-  turnPID(-18);//Left
-  intakeV(-600);
-  shoot();
-  pros::delay(800);
-  pros::delay(2000);
-  rollerV(200);
-  pros::delay(3000);*/
-  //All subsystems shut down
-  flyStop();
+  //2)Intake 1 disc
+  //3)Turn Roller
+  drive->moveDistance(-2_in);
+  pros::delay(600);//turn roller (rollerSpinner is on since the shoot)
   rollerStop();
+  //4) Approach 2nd shot / intake 2 discs
+  flySpinToV(415);//prepare second rpm FW
+  drive->moveDistance(2_in);
+  intakeV(600);
+  turnPID(53);//Right
+  drive->moveDistance(36_in);
+  //5) Align and shoot
+  turn->turnAngle(-63_deg);//Left
+  shoot();
+  pros::delay(1000);
+  rollerStop();
+  flySpinToV(410);//prepare third rpm FW
+  //6)Intake Discs
+  turnPID(50);
+  intakeV(600);
+  drive->moveDistance(14_in);
+  //align with goal
+  turn->turnAngle(-74_deg);
+  //7)Shoot
+  shoot();
+  pros::delay(2500);
+  rollerStop();
+  flyStop();
   intakeStop();
 }
 
@@ -270,7 +266,7 @@ void  progSkillsPID(){
   turn->turnAngle(-45_deg);
   skills->moveDistance(-12_in);
   //expand
-  deployExpansion();
+  normalExpansion();
 
   ////END-OF-ROUTINE////
   //__________________//

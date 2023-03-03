@@ -19,7 +19,7 @@ void runAuton(){
   /*------------------------------------------*/
   //turnPID(-90);
 //  drive->moveDistance(24_in);
-//  turnPID(-15);
+//  turnPID(90);
      rollerAuton();
   //   nonRollerAuton();
   //   fullWpAuton();
@@ -36,6 +36,7 @@ void runAuton(){
 
 void runOp(){
   //set brake mode to coast
+
   setDriveCoast();
   pros::screen::erase();
   while (true) {
@@ -68,13 +69,20 @@ int turnMovementFunct = turnJoystick/1.25;
 //Shooter; Operator Control:
 /*------------------------------------------*/
 if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2) == 1) {
-  flySpinToV(350);//350
+  angleUp();
+  flySpinToV(360);//350 (hard shooting)
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_A) == 1) {
+  angleUp();
   flySpinToV(600);
 }
+else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y) == 1) {
+  angleDown();
+  flySpinToV(410);
+}
 else{
-  flySpinToV(250);//mantain momentum
+  angleUp();
+  flySpinToV(0);//mantain momentum (normal shooting) 330
 }
 
 /*------------------------------------------*/
@@ -85,11 +93,11 @@ if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) == 1) {
   shoot();
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1) == 1) {
-  intakeV(600);
+  intakeV(500);
 //  rollerV(-200);
 }
 else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2) == 1) {
-  intakeV(-600);
+  intakeV(-500);
 }
 else{
   intakeStop();
