@@ -51,8 +51,8 @@ void runOp(){
 int fwdJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y);
 int turnJoystick = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_RIGHT_X);
 //b(x) = x^2
-int fwdMovementFunct = fwdJoystick;
-int turnMovementFunct = turnJoystick/1.25;
+int fwdMovementFunct = 2*fwdJoystick; //(full speed at half joystick)
+int turnMovementFunct = turnJoystick;
 ///////////////////////////////////////////////////////////////////////////
     //lift angle Changer
    angleUp();
@@ -82,7 +82,7 @@ else if (def::controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y) == 1) {
 }
 else{
   angleUp();
-  flySpinToV(0);//mantain momentum (normal shooting) 330
+  flySpinToV(330);//mantain momentum (normal shooting) 330
 }
 
 /*------------------------------------------*/
