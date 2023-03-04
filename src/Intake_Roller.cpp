@@ -19,6 +19,35 @@ void intakeStop(){
 void shoot(){
  def::Roller_Indexer.moveVelocity(-200);
 }
+void shoot1(int delay){
+  while(def::discDetector.get_value() >= 40){
+   shoot();
+  }
+  rollerStop();
+  pros::delay(delay);
+}
+void shoot1by1(int discQuantity){
+  int delay = 500;
+  if(discQuantity == 1){
+    //One shot
+    shoot1(delay);
+  }
+  else if(discQuantity == 2){
+    //First shot
+    shoot1(delay);
+    //Second shot
+    shoot1(delay);
+  }
+  else if(discQuantity == 3){
+    //First shot
+    shoot1(delay);
+    //Second shot
+    shoot1(delay);
+    //Third shot
+    shoot1(delay);
+  }
+
+}
 void angleDown(){
  def::angleChanger.set_value(false);
 }

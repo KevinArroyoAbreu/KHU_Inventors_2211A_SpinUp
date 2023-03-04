@@ -43,6 +43,8 @@ namespace def
    pros::Imu inertial(21);
    //Optical Sensor (on Roller Spinner)
    pros::Optical optical(9);
+   //Ultrasonic Sensor
+   pros::ADIUltrasonic discDetector('G', 'H');
    //*------------------------Controller----------------------*//
    pros::Controller controller(pros::E_CONTROLLER_MASTER);
  }

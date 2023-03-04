@@ -39,8 +39,9 @@ void runOp(){
 
   setDriveCoast();
   pros::screen::erase();
-  while (true) {
-  pros::screen::print(TEXT_LARGE, 3, "Flywheel: %f", def::Flywheel.getActualVelocity());
+
+while(true){
+  //pros::screen::print(TEXT_LARGE, 3, "Flywheel: %f", def::Flywheel.getActualVelocity());
 /*------------------------------------------*/
     //Drivetrain movement; Operator Control:
 /*------------------------------------------*/

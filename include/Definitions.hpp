@@ -44,6 +44,8 @@ namespace def
   extern pros::Imu inertial;
   //Optical Sensor (on Roller Spinner)
   extern pros::Optical optical;
+  //Ultrasonic sensor
+  extern pros::ADIUltrasonic discDetector;
   //*------------------------Controller----------------------*//
   extern pros::Controller controller;
 
