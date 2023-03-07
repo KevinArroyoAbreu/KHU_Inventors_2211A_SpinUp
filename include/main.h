@@ -67,6 +67,8 @@
 #include "Shooter.hpp"
 #include "AutonRoutines.hpp"
 #include "TurnPID.hpp"
+//pure pursuit
+#include "purePursuit.hpp"
 
 
 /**
